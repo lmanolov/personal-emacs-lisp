@@ -777,3 +777,18 @@
 (setq org-remember-templates
       '(("Tasks" ?t "* TODO %?" "~/gtd/inbox.org")
         ("Appointments" ?a "* Appointment: %?\n%^T\n%i\n  %a" "~/gtd/inbox.org")))
+
+
+;; ********************************************************************************
+;; PHP mode
+(load-file "~/elisp/php-mode.el")
+(defun drupal-mode ()
+  (interactive)
+  (php-mode)
+  (setq c-basic-offset 2)
+  (setq indent-tabs-mode nil)
+  (setq fill-column 78)
+  (c-set-offset 'case-label 2)
+  (c-set-offset 'arglist-close 0))
+
+(add-to-list 'auto-mode-alist '("/home/lubo/www/drupal.*\\.\\(php\\|module\\|inc\\)$" . drupal-mode))
