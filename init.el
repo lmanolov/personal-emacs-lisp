@@ -745,3 +745,10 @@
 (slime-setup '(slime-fancy slime-tramp slime-asdf))
 (setq slime-net-coding-system 'utf-8-unix)
 ;;(slime)
+
+
+;; ********************************************************************************
+;; ORACLE
+(setenv "ORACLE_HOME" "/usr/lib/oracle/xe/app/oracle/product/10.2.0/server")
+(setenv "PATH" (concat (getenv "ORACLE_HOME") "/bin:" (getenv "PATH")))
+(setq sql-oracle-program (concat (getenv "ORACLE_HOME") "/bin/" "sqlplus"))
