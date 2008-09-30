@@ -752,3 +752,28 @@
 (setenv "ORACLE_HOME" "/usr/lib/oracle/xe/app/oracle/product/10.2.0/server")
 (setenv "PATH" (concat (getenv "ORACLE_HOME") "/bin:" (getenv "PATH")))
 (setq sql-oracle-program (concat (getenv "ORACLE_HOME") "/bin/" "sqlplus"))
+
+
+;; ********************************************************************************
+;; GTD
+
+(defun gtd ()
+   (interactive)
+   (find-file "/home/lubo/gtd/gtd.org"))
+
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(define-key global-map "\C-cr" 'org-remember)
+(setq org-log-done t)
+(setq org-agenda-files (list "~/gtd/gtd.org"))
+
+(add-to-list 'load-path "~/elisp/remember")
+(require 'remember)
+(setq remember-annotation-functions '(org-remember-annotation))
+(setq remember-handler-functions '(org-remember-handler))
+(add-hook 'remember-mode-hook 'org-remember-apply-template)
+;; (define-key global-map [f11] 'remember)
+(setq org-remember-templates
+      '(("Tasks" ?t "* TODO %?" "~/gtd/inbox.org")
+        ("Appointments" ?a "* Appointment: %?\n%^T\n%i\n  %a" "~/gtd/inbox.org")))
