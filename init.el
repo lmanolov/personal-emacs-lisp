@@ -69,6 +69,11 @@
 (setq use-file-dialog t)
 (setq tags-revert-without-query t)
 (setq tab-width 4)
+(setq calendar-week-start-day 1)
+(setq european-calendar-style 't)
+(setq-default indent-tabs-mode nil)
+(setq default-tab-width 4)
+(setq c-basic-indent 4)
 
 
 ;; Rinari
