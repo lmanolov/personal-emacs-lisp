@@ -726,3 +726,17 @@
 (set-face-attribute 'tabbar-button nil
 		    :foreground "#666"
 		    :box '(:line-width 1 :color "#fff"))
+
+
+;; ********************************************************************************
+;; load slime:
+(setq load-path (cons "/home/lubo/software/clbuild/source/slime" load-path))
+(setq load-path (cons "/home/lubo/software/clbuild/source/slime/contrib" load-path))
+(setq slime-backend "/home/lubo/software/clbuild/.swank-loader.lisp")
+(setq inhibit-splash-screen t)
+(load "/home/lubo/software/clbuild/source/slime/slime")
+(setq inferior-lisp-program "/home/lubo/software/clbuild/clbuild lisp")
+(setq slime-use-autodoc-mode nil)
+(slime-setup '(slime-fancy slime-tramp slime-asdf))
+(setq slime-net-coding-system 'utf-8-unix)
+;;(slime)
