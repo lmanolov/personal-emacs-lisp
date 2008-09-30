@@ -18,7 +18,8 @@
 (add-to-list 'load-path "~/elisp/semantic")
 (add-to-list 'load-path "~/elisp/speedbar")
 (add-to-list 'load-path "~/elisp/color-theme")
-
+(add-to-list 'load-path "~/elisp/as3-mode")
+(add-to-list 'load-path "~/elisp/yasnippet")
 
 ;; ********************************************************************************
 ;; Require libraries
