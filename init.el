@@ -705,7 +705,7 @@
 ;; ********************************************************************************
 ;; Start emacs server
 (server-start)
-
+(remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
 ;; ********************************************************************************
 ;; Color theme
