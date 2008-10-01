@@ -524,7 +524,7 @@
 (setq ecb-compile-window-height 20)
 (setq ecb-kill-buffer-clears-history nil)
 (setq ecb-layout-window-sizes nil)
-
+(setq tramp-default-method "ssh")
 
 (defun ecb-on-activate ()
   (setq ecb-directories-menu-user-extension 
@@ -793,3 +793,8 @@
   (c-set-offset 'arglist-close 0))
 
 (add-to-list 'auto-mode-alist '("/home/lubo/www/drupal.*\\.\\(php\\|module\\|inc\\)$" . drupal-mode))
+
+
+;; ********************************************************************************
+;; ANSI color
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
