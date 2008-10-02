@@ -395,7 +395,8 @@
 (load "ani-fcsh")
 
 (setq *fcsh-path* "fcsh")
-(setq *fcsh-mxmlc-output-path* "")
+(setq *fcsh-mxmlc-output-path* "/home/lubo/java/apache-tomcat-6.0.16/webapps/flexcash/flex/")
+(setq *fcsh-mxmlc-command* "mxmlc -load-config ../fc.xml") 
 
 (defun compile-mxmlc ()
   (interactive)
