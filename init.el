@@ -12,7 +12,6 @@
 (add-to-list 'load-path "~/elisp/flyparse")
 (add-to-list 'load-path "~/elisp/git")
 (add-to-list 'load-path "~/elisp/js2-mode")
-(add-to-list 'load-path "~/elisp/nxml-mode")
 (add-to-list 'load-path "~/elisp/rhtml")
 (add-to-list 'load-path "~/elisp/ruby")
 (add-to-list 'load-path "~/elisp/semantic")
@@ -75,7 +74,8 @@
 (setq-default indent-tabs-mode nil)
 (setq default-tab-width 4)
 (setq c-basic-indent 4)
-
+(setq backup-inhibited t)
+(setq auto-save-default nil)
 
 ;; Rinari
 (require 'rinari)
@@ -489,7 +489,8 @@
 ;; XML Mode
 ;;
 
-(setq rng-schema-locating-file-schema-file "~/elisp/nxml-mode/schema/schemas.xml")
+;(setq rng-schema-locating-file-schema-file "~/elisp/nxml/schemas.xml")
+(setq rng-schema-locating-files '("~/elisp/nxml/schemas.xml"))
 
 (autoload 'nxml-mode "nxml-mode" "XML Mode" t)
 (add-to-list 'auto-mode-alist '("\\.xml$" . nxml-mode))

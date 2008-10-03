@@ -6,6 +6,7 @@
   <uri pattern="*.rhtml" typeId="XHTML"/>
   <uri pattern="*.rng" typeId="RELAX NG"/>
   <uri pattern="*.rdf" typeId="RDF"/>
+  <uri pattern="*.mxml" typeId="MXML"/>
   
   <namespace ns="http://www.w3.org/1999/XSL/Transform" typeId="XSLT"/>
   <namespace ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" typeId="RDF"/>
@@ -34,4 +35,5 @@
   <typeId id="XHTML" uri="xhtml.rnc"/>
   <typeId id="DocBook" uri="docbook.rnc"/>
   <typeId id="RDF" uri="rdfxml.rnc"/>
+  <typeId id="MXML" uri="flex3.rnc"/>
 </locatingRules>
