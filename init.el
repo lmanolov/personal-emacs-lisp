@@ -738,16 +738,16 @@
 
 ;; ********************************************************************************
 ;; load slime:
-(setq load-path (cons "/home/lubo/software/clbuild/source/slime" load-path))
-(setq load-path (cons "/home/lubo/software/clbuild/source/slime/contrib" load-path))
-(setq slime-backend "/home/lubo/software/clbuild/.swank-loader.lisp")
-(setq inhibit-splash-screen t)
-(load "/home/lubo/software/clbuild/source/slime/slime")
-(setq inferior-lisp-program "/home/lubo/software/clbuild/clbuild lisp")
-(setq slime-use-autodoc-mode nil)
-(slime-setup '(slime-fancy slime-tramp slime-asdf))
-(setq slime-net-coding-system 'utf-8-unix)
-;;(slime)
+;;(setq load-path (cons "/home/lubo/software/clbuild/source/slime" load-path))
+;;(setq load-path (cons "/home/lubo/software/clbuild/source/slime/contrib" load-path))
+;;(setq slime-backend "/home/lubo/software/clbuild/.swank-loader.lisp")
+;;(setq inhibit-splash-screen t)
+;;(load "/home/lubo/software/clbuild/source/slime/slime")
+;;(setq inferior-lisp-program "/home/lubo/software/clbuild/clbuild lisp")
+;;(setq slime-use-autodoc-mode nil)
+;;(slime-setup '(slime-fancy slime-tramp slime-asdf))
+;;(setq slime-net-coding-system 'utf-8-unix)
+;(slime)
 
 
 ;; ********************************************************************************
@@ -800,3 +800,37 @@
 ;; ********************************************************************************
 ;; ANSI color
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+
+(setq slime-net-coding-system 'utf-8-unix)
+(add-to-list 'load-path "~/elisp/slime")
+(add-to-list 'load-path "~/elisp/clojure-mode")
+(add-to-list 'load-path "~/elisp/swank-clojure")
+
+(setq swank-clojure-binary "clojure")
+
+;;(setq swank-clojure-jar-path "~/projects/clojure/clojure.jar")
+;;(setq swank-clojure-extra-classpaths (list "~/projects/clojure-contrib/clojure-contrib.jar"))
+
+(setq auto-mode-alist (cons '("\\.clj$" . clojure-mode)
+                            auto-mode-alist))
+
+(require 'clojure-auto)
+(require 'swank-clojure-autoload)
+(require 'slime)
+
+(slime-setup '(slime-fancy))
+(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
+(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
+(setq slime-multiprocessing t)
+
+(add-to-list 'slime-lisp-implementations '(sbcl ("sbcl")))
+
+(defun clojure ()
+  "Starts clojure in Slime"
+  (interactive)
+  (slime 'clojure))
+
+(add-hook 'clojure-mode-hook
+          '(lambda ()
+             (define-key clojure-mode-map (kbd "C-c C-c") 'lisp-eval-last-sexp)))

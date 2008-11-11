@@ -4,3 +4,12 @@
 [submodule "as3-mode"]
 	path = as3-mode
 	url = git://github.com/aemoncannon/as3-mode.git
+[submodule "slime"]
+	path = slime
+	url = git://github.com/nablaone/slime.git
+[submodule "clojure-mode"]
+	path = clojure-mode
+	url = git://github.com/jochu/clojure-mode.git
+[submodule "swank-clojure"]
+	path = swank-clojure
+	url = git://github.com/jochu/swank-clojure.git
